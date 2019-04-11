@@ -1,4 +1,3 @@
-#I give my best for this tasks
 #This lambda function Take the snaphot of ec2 instances
 
 Step-1 Go to IAM and Create Policy using below code
