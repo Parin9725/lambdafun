@@ -51,3 +51,9 @@ Step-5 Create Instance for Testing
 	Make sure Instance Tage is Key=backup Value=Any
 
 Step-6 Go to lambda function which we created and Test the code.
+
+################ Set schedule for snapshot create every night 2AM #########################
+
+Step-7 Go to Cloudwatch Service
+
+	go to Event > Rule > create rule > select event source Schedule > set cron expression 0 2 * * ? *  > Click on Target > Select Lambda function > select lambda function > configure detail > give rule name > create rule
