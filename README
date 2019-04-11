@@ -1,0 +1,53 @@
+#I give my best for this tasks
+#This lambda function Take the snaphot of ec2 instances
+
+Step-1 Go to IAM and Create Policy using below code
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:*"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ec2:Describe*",
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateSnapshot",
+                "ec2:DeleteSnapshot",
+                "ec2:CreateTags",
+                "ec2:ModifySnapshotAttribute",
+                "ec2:ResetSnapshotAttribute"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+
+Step-2 Create Role for lambda function
+        
+	Go to IAM > Role > Create Role > Select lambda Service > Next > Attach Policy Which Created in Step-1 > Next > Next > Give Role Name > Create Role.
+
+Step-3 Go to lambda service
+
+	create function > Give function name,slect runtime python2.7,permission,Choose or create an execution role,use an existing role,select role in which is created in step-2 > create function
+
+Step-4 Copy the code lambda.py which is avaible in below link and paste the code also save the code
+
+	https://github.com/Parin9725/lambdafun.git
+
+Step-5 Create Instance for Testing
+
+	Make sure Instance Tage is Key=backup Value=Any
+
+Step-6 Go to lambda function which we created and Test the code.
